@@ -1,0 +1,34 @@
+import java.math.BigDecimal;
+
+public class IncomeTaxCalculator {
+    public static void main(String[] args) {
+        BigDecimal income = new BigDecimal("75000"); // Replace with actual income
+        BigDecimal tax = BigDecimal.ZERO;
+
+        if (income.compareTo(new BigDecimal("9875")) > 0) {
+            tax = tax.add(income.subtract(new BigDecimal("9875")).multiply(new BigDecimal("0.1")));
+        }
+        if (income.compareTo(new BigDecimal("40125")) > 0) {
+            tax = tax.add(income.subtract(new BigDecimal("40125")).multiply(new BigDecimal("0.12")));
+        }
+        if (income.compareTo(new BigDecimal("85525")) > 0) {
+            tax = tax.add(income.subtract(new BigDecimal("85525")).multiply(new BigDecimal("0.22")));
+        }
+        if (income.compareTo(new BigDecimal("163300")) > 0) {
+            tax = tax.add(income.subtract(new BigDecimal("163300")).multiply(new BigDecimal("0.24")));
+        }
+        if (income.compareTo(new BigDecimal("207350")) > 0) {
+            tax = tax.add(income.subtract(new BigDecimal("207350")).multiply(new BigDecimal("0.32")));
+        }
+        if (income.compareTo(new BigDecimal("518400")) > 0) {
+            tax = tax.add(income.subtract(new BigDecimal("518400")).multiply(new BigDecimal("0.35")));
+        }
+        if (income.compareTo(new BigDecimal("518401")) > 0) {
+            tax = tax.add(income.subtract(new BigDecimal("518401")).multiply(new BigDecimal("0.37")));
+        }
+
+        System.out.println("Tax owed: $" + tax.setScale(2, BigDecimal.ROUND_HALF_UP));
+    }
+
+
+}
